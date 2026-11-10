@@ -37,3 +37,6 @@ Thumbs.db
 
 # Local setup log
 setup_log.txt
+
+# Phase run logs
+*_log.txt

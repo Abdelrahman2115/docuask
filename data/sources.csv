@@ -1,0 +1,41 @@
+doc_id,kind,title,url
+robocalls,pdf,Stop Unwanted Robocalls and Texts,https://www.fcc.gov/sites/default/files/stop_unwanted_robocalls_and_texts.pdf
+slamming,pdf,Slamming: Switching Your Authorized Telephone Company Without Permission,https://www.fcc.gov/sites/default/files/slamming_-_switching_your_authorized_telephone_company_without_permission.pdf
+porting,pdf,Porting: Keeping Your Phone Number When You Change Providers,https://www.fcc.gov/sites/default/files/porting_-_keeping_your_phone_number_when_you_change_providers.pdf
+caller_id_spoofing,pdf,Caller ID Spoofing,https://www.fcc.gov/sites/default/files/caller_id_spoofing.pdf
+informal_complaint,pdf,Filing an Informal Complaint,https://www.fcc.gov/sites/default/files/filing_an_informal_complaint.pdf
+cable_bills,pdf,Consumer Protections for Cable Bills,https://www.fcc.gov/sites/default/files/consumer_protections_for_cable_bills.pdf
+phone_cable_privacy,pdf,Protecting Your Privacy: Phone and Cable Records,https://www.fcc.gov/sites/default/files/protecting_your_privacy_-_phone_and_cable_records.pdf
+broadband_speed,pdf,Broadband Speed Guide,https://www.fcc.gov/sites/default/files/broadband_speed_guide.pdf
+household_broadband,pdf,Household Broadband Guide,https://www.fcc.gov/sites/default/files/household_broadband_guide.pdf
+broadband_labels,pdf,Consumer Fact Sheet: Broadband Consumer Labels,https://docs.fcc.gov/public/attachments/DOC-401799A1.pdf
+esim_faq,pdf,eSIM Cards FAQ,https://www.fcc.gov/sites/default/files/esim_cards_faq.pdf
+voicemail_hacking,pdf,Voicemail Hacking,https://www.fcc.gov/sites/default/files/voicemail_system_hacking.pdf
+one_ring_scam,pdf,'One Ring' Phone Scam,https://www.fcc.gov/sites/default/files/one_ring_phone_scam.pdf
+mexico_collect_call_scam,pdf,Mexico Collect Call Scam,https://www.fcc.gov/sites/default/files/mexico_collect_call_scam.pdf
+storm_scams,pdf,"After Storms, Watch Out for Scams",https://www.fcc.gov/sites/default/files/after_storms_watch_out_for_scams.pdf
+auto_warranty_scams,pdf,Watch Out for Auto Warranty Scams,https://www.fcc.gov/sites/default/files/watch_out_for_auto_warranty_scams.pdf
+wireless_911,pdf,Wireless 911 Service,https://www.fcc.gov/sites/default/files/911_wireless_services.pdf
+text_to_911,pdf,Text to 911: What You Need to Know,https://www.fcc.gov/sites/default/files/text-to-911_-_what_you_need_to_know.pdf
+wireless_emergency_alerts,pdf,Wireless Emergency Alerts (WEA),https://www.fcc.gov/sites/default/files/Wireless_Emergency_Alerts_wea.pdf
+wifi_bluetooth_security,pdf,Wireless Connections and Bluetooth Security Tips,https://www.fcc.gov/sites/default/files/wireless_connections_and_bluetooth_security_tips.pdf
+secure_web,pdf,Tips for Secure Web Navigation and Transactions,https://www.fcc.gov/sites/default/files/tips_for_secure_web_navigation_and_transactions.pdf
+interference,pdf,"Interference with Radio, TV and Cordless Telephone Signals",https://www.fcc.gov/sites/default/files/interference_with_radio_tv_and_telephone_signals.pdf
+multiple_tenant,pdf,Consumer FAQ: Rules for Service Providers in Multiple Tenant Environments,https://www.fcc.gov/sites/default/files/consumer_faq_rules_for_service_providers_in_multiple_tenant_environments.pdf
+tech_transition,pdf,Tech Transition: Modernizing Communications Services,https://www.fcc.gov/sites/default/files/tech_transition_factsheet_oct2026.pdf
+relay_711,pdf,711 for TTY-Based Telecommunications Relay Service,https://www.fcc.gov/sites/default/files/711_for_telecommunications_relay_service.pdf
+relay_trs,pdf,Telecommunications Relay Service (TRS),https://www.fcc.gov/sites/default/files/telecommunications_relay_service.pdf
+telephone_bill,html,Understanding Your Telephone Bill,https://www.fcc.gov/consumers/guides/understanding-your-telephone-bill
+international_calling,html,International Calling Tip Sheet,https://www.fcc.gov/consumers/guides/international-long-distance-calling-made-simple-tip-sheet
+ip_relay_fraud,html,IP Relay Fraud,https://www.fcc.gov/consumers/guides/ip-relay-fraud
+mobile_speed_tests,html,'Drive Tests' and Other 'Speed Tests' to Validate Mobile Broadband Availability,https://www.fcc.gov/consumers/guides/drive-tests-and-other-speed-tests-conducted-validate-mobile-broadband-availability
+real_time_text,html,Real-Time Text: Improving Accessible Telecommunications,https://www.fcc.gov/consumers/guides/real-time-text-improving-accessible-telecommunications
+cc_phone_issues,zendesk,Phone Form - Descriptions of Complaint Issues,https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/360001201223.json
+cc_internet_issues,zendesk,Internet Form - Descriptions of Complaint Issues,https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/115002206106.json
+cc_unwanted_calls,zendesk,Unwanted Calls/Texts - Phone,https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/115002234203.json
+cc_privacy,zendesk,Privacy Complaints,https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/8824334151572.json
+cc_complaint_qa,zendesk,Filing a Complaint Questions and Answers,https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/205082880.json
+cc_complaint_handling,zendesk,How the FCC Handles Your Complaint,https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/202752940.json
+cc_outside_jurisdiction,zendesk,Issues Outside the Jurisdiction of the FCC,https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/202958440.json
+cc_emergency,zendesk,Emergency Complaints,https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/115000914506.json
+cc_acp_advisory,zendesk,Consumer Advisory: Websites Advertising the Affordable Connectivity Program,https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/32636130998420.json

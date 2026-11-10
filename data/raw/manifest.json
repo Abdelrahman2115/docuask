@@ -1,0 +1,312 @@
+{
+  "broadband_labels": {
+    "url": "https://docs.fcc.gov/public/attachments/DOC-401799A1.pdf",
+    "file": "data/raw/pdf/broadband_labels.pdf",
+    "bytes": 367341,
+    "sha256": "11a9ce920573c4535e0492d13cd7d398ee71eb388c7c9719b4846b7aac869cc8",
+    "downloaded_at": "2026-11-10T21:36:50+00:00"
+  },
+  "cc_phone_issues": {
+    "url": "https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/360001201223.json",
+    "file": "data/raw/html/cc_phone_issues.html",
+    "bytes": 4511,
+    "sha256": "a75e3ac9c32083bf8ae034a14de245210fa06dac0240acf7ffd197a7fe5d4c6a",
+    "downloaded_at": "2026-11-10T21:37:01+00:00"
+  },
+  "cc_internet_issues": {
+    "url": "https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/115002206106.json",
+    "file": "data/raw/html/cc_internet_issues.html",
+    "bytes": 8717,
+    "sha256": "c0371067f241d710c39537c6ffeea398be7535ac9c6a634f9bc294e688f1165f",
+    "downloaded_at": "2026-11-10T21:37:03+00:00"
+  },
+  "cc_unwanted_calls": {
+    "url": "https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/115002234203.json",
+    "file": "data/raw/html/cc_unwanted_calls.html",
+    "bytes": 3965,
+    "sha256": "801bd9c506eb29a4e86e2c4f96f1d97b4c141c05bc00758c7140a1811de965bc",
+    "downloaded_at": "2026-11-10T21:37:04+00:00"
+  },
+  "cc_privacy": {
+    "url": "https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/8824334151572.json",
+    "file": "data/raw/html/cc_privacy.html",
+    "bytes": 2076,
+    "sha256": "a2dc7d49b96ff66d8f5a92a099b7e3fc1cdd7c6e1ab0c15a7749c96856161730",
+    "downloaded_at": "2026-11-10T21:37:05+00:00"
+  },
+  "cc_complaint_qa": {
+    "url": "https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/205082880.json",
+    "file": "data/raw/html/cc_complaint_qa.html",
+    "bytes": 11432,
+    "sha256": "1ed26e1a755a72ddfe15e4db3d49b10d3c2f9268a525842347cc00bcaef1ae1c",
+    "downloaded_at": "2026-11-10T21:37:07+00:00"
+  },
+  "cc_complaint_handling": {
+    "url": "https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/202752940.json",
+    "file": "data/raw/html/cc_complaint_handling.html",
+    "bytes": 4695,
+    "sha256": "afa07a75d26cfe7c42290c82cfe40655219c919c14ae6912a3c03f1e5cc54d54",
+    "downloaded_at": "2026-11-10T21:37:08+00:00"
+  },
+  "cc_outside_jurisdiction": {
+    "url": "https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/202958440.json",
+    "file": "data/raw/html/cc_outside_jurisdiction.html",
+    "bytes": 2678,
+    "sha256": "fc47a3d1c9c9921fcbcce5793d587a447afd046fcc2878238244904016e1aa50",
+    "downloaded_at": "2026-11-10T21:37:10+00:00"
+  },
+  "cc_emergency": {
+    "url": "https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/115000914506.json",
+    "file": "data/raw/html/cc_emergency.html",
+    "bytes": 2140,
+    "sha256": "106007f696324d1fcd85aee3735b62482c5e94e1d00d186f6bab4c0bdb619e8f",
+    "downloaded_at": "2026-11-10T21:37:11+00:00"
+  },
+  "cc_acp_advisory": {
+    "url": "https://consumercomplaints.fcc.gov/api/v2/help_center/en-us/articles/32636130998420.json",
+    "file": "data/raw/html/cc_acp_advisory.html",
+    "bytes": 2076,
+    "sha256": "e68cc97641577e331095de036583dbd55e918f65bbbf7809cc60394611f71b44",
+    "downloaded_at": "2026-11-10T21:37:13+00:00"
+  },
+  "robocalls": {
+    "url": "https://www.fcc.gov/sites/default/files/stop_unwanted_robocalls_and_texts.pdf",
+    "file": "data/raw/pdf/robocalls.pdf",
+    "bytes": 346967,
+    "sha256": "d72f22de84a5f8d0dd05eeabb3b862ccb165f3982f842d0b12b4eeaf1dee2ea2",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "slamming": {
+    "url": "https://www.fcc.gov/sites/default/files/slamming_-_switching_your_authorized_telephone_company_without_permission.pdf",
+    "file": "data/raw/pdf/slamming.pdf",
+    "bytes": 140906,
+    "sha256": "17b723ee72f9854a1051db2958f03522a1a2db50f9147707d38eaa733a3efb69",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "porting": {
+    "url": "https://www.fcc.gov/sites/default/files/porting_-_keeping_your_phone_number_when_you_change_providers.pdf",
+    "file": "data/raw/pdf/porting.pdf",
+    "bytes": 190817,
+    "sha256": "54d2b360a229e2ab5d51f3f499a7389c079c5ac2caa25a7716b1c571b8d998bf",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "caller_id_spoofing": {
+    "url": "https://www.fcc.gov/sites/default/files/caller_id_spoofing.pdf",
+    "file": "data/raw/pdf/caller_id_spoofing.pdf",
+    "bytes": 302158,
+    "sha256": "215bed57eb69d83e4a6a52e712c7e7163edea5896060d432df2f6a35817e78e8",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "informal_complaint": {
+    "url": "https://www.fcc.gov/sites/default/files/filing_an_informal_complaint.pdf",
+    "file": "data/raw/pdf/informal_complaint.pdf",
+    "bytes": 206914,
+    "sha256": "272f5dff633a23404219666fa876d38cb5119b0a00bb4cd0a10caf2d6ce98237",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "cable_bills": {
+    "url": "https://www.fcc.gov/sites/default/files/consumer_protections_for_cable_bills.pdf",
+    "file": "data/raw/pdf/cable_bills.pdf",
+    "bytes": 202601,
+    "sha256": "b23aa5a234f14f0b34f5ec48231a29d6e3a0d7c840d199991e27691f6419f046",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "phone_cable_privacy": {
+    "url": "https://www.fcc.gov/sites/default/files/protecting_your_privacy_-_phone_and_cable_records.pdf",
+    "file": "data/raw/pdf/phone_cable_privacy.pdf",
+    "bytes": 212708,
+    "sha256": "c5b26bd42fa592342c072ad2329009e492a0e8cd2d0429c10f02ac81e60725ec",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "broadband_speed": {
+    "url": "https://www.fcc.gov/sites/default/files/broadband_speed_guide.pdf",
+    "file": "data/raw/pdf/broadband_speed.pdf",
+    "bytes": 188635,
+    "sha256": "d0544e9d3932acbea3b6726f729c0dacb785f2afa0b0ae08939d56b220ab9480",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "household_broadband": {
+    "url": "https://www.fcc.gov/sites/default/files/household_broadband_guide.pdf",
+    "file": "data/raw/pdf/household_broadband.pdf",
+    "bytes": 194203,
+    "sha256": "6ba24b5f08cc8a02e144e2355119bb03bfcdfd81b68e8d837872ccfc067ea9c3",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "esim_faq": {
+    "url": "https://www.fcc.gov/sites/default/files/esim_cards_faq.pdf",
+    "file": "data/raw/pdf/esim_faq.pdf",
+    "bytes": 342458,
+    "sha256": "fe1e34337753bd102fd4aa17003909f1bc74ed7e584d0663b7fadef5932defd0",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "voicemail_hacking": {
+    "url": "https://www.fcc.gov/sites/default/files/voicemail_system_hacking.pdf",
+    "file": "data/raw/pdf/voicemail_hacking.pdf",
+    "bytes": 203565,
+    "sha256": "24461d8d3e400e7e4de905b571d134993ea337d7da5427e82789581ecfc1ffa7",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "one_ring_scam": {
+    "url": "https://www.fcc.gov/sites/default/files/one_ring_phone_scam.pdf",
+    "file": "data/raw/pdf/one_ring_scam.pdf",
+    "bytes": 232193,
+    "sha256": "9634e9e50ab3cbc9e99b2cd495bb5899699b5cd0f1f652cbf59fd7634e41547f",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "mexico_collect_call_scam": {
+    "url": "https://www.fcc.gov/sites/default/files/mexico_collect_call_scam.pdf",
+    "file": "data/raw/pdf/mexico_collect_call_scam.pdf",
+    "bytes": 199467,
+    "sha256": "414e0ed41fc00ef737ef7940eab37d95c8edc3dca02f14723390528a53fbc5c0",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "storm_scams": {
+    "url": "https://www.fcc.gov/sites/default/files/after_storms_watch_out_for_scams.pdf",
+    "file": "data/raw/pdf/storm_scams.pdf",
+    "bytes": 59122,
+    "sha256": "57a44c49956be2e35b73a92b6ff32eeeed478e3e076052a9fe378d6422a69636",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "auto_warranty_scams": {
+    "url": "https://www.fcc.gov/sites/default/files/watch_out_for_auto_warranty_scams.pdf",
+    "file": "data/raw/pdf/auto_warranty_scams.pdf",
+    "bytes": 309341,
+    "sha256": "d4b3b662de6043032ac2f4d922402d9090168f34792529a1c325ca953baaf3a7",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "wireless_911": {
+    "url": "https://www.fcc.gov/sites/default/files/911_wireless_services.pdf",
+    "file": "data/raw/pdf/wireless_911.pdf",
+    "bytes": 319369,
+    "sha256": "70ad678b9d19fd3c4e6680f15dfa655e4f5d0c8342b22a88e94e7e9893549c9a",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "text_to_911": {
+    "url": "https://www.fcc.gov/sites/default/files/text-to-911_-_what_you_need_to_know.pdf",
+    "file": "data/raw/pdf/text_to_911.pdf",
+    "bytes": 317568,
+    "sha256": "204e25dc2b335a1f8794310898c2e42db440bac2fb16ca2e06c4f7d14a0e0101",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "wireless_emergency_alerts": {
+    "url": "https://www.fcc.gov/sites/default/files/Wireless_Emergency_Alerts_wea.pdf",
+    "file": "data/raw/pdf/wireless_emergency_alerts.pdf",
+    "bytes": 231374,
+    "sha256": "cb5e0531cf79deb9386f05c1af4de6599540fbd9e86a867da1301943df4fb69d",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "wifi_bluetooth_security": {
+    "url": "https://www.fcc.gov/sites/default/files/wireless_connections_and_bluetooth_security_tips.pdf",
+    "file": "data/raw/pdf/wifi_bluetooth_security.pdf",
+    "bytes": 310527,
+    "sha256": "dff25d23039bb6a0a8881b4b5fe955d34d3206b835e555a2928cbf37877d7745",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "secure_web": {
+    "url": "https://www.fcc.gov/sites/default/files/tips_for_secure_web_navigation_and_transactions.pdf",
+    "file": "data/raw/pdf/secure_web.pdf",
+    "bytes": 153143,
+    "sha256": "0611d666078a54ea4a9b88288eccd33f3be11878c8ad6d53ecf8d76397807897",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "interference": {
+    "url": "https://www.fcc.gov/sites/default/files/interference_with_radio_tv_and_telephone_signals.pdf",
+    "file": "data/raw/pdf/interference.pdf",
+    "bytes": 149439,
+    "sha256": "1cbd346a9ed2c2f632bbf1423056ac69d957d3f29f4cf670e13188d617deebf3",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "multiple_tenant": {
+    "url": "https://www.fcc.gov/sites/default/files/consumer_faq_rules_for_service_providers_in_multiple_tenant_environments.pdf",
+    "file": "data/raw/pdf/multiple_tenant.pdf",
+    "bytes": 115598,
+    "sha256": "91b95f40d0f45486fd3349a8aa0c8f1433c84f8e55d16992416c522cc67a467e",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "tech_transition": {
+    "url": "https://www.fcc.gov/sites/default/files/tech_transition_factsheet_oct2026.pdf",
+    "file": "data/raw/pdf/tech_transition.pdf",
+    "bytes": 292382,
+    "sha256": "60fd33aed87fbb6337a0b08b3f3be56fd2de6c9df2eb55a1eac3f8f2a4174d84",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "relay_711": {
+    "url": "https://www.fcc.gov/sites/default/files/711_for_telecommunications_relay_service.pdf",
+    "file": "data/raw/pdf/relay_711.pdf",
+    "bytes": 53004,
+    "sha256": "bf264c1fc65fd89f3e8a95af9dfb6e14daad484b161a6c965a52d5d1433b4d44",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "relay_trs": {
+    "url": "https://www.fcc.gov/sites/default/files/telecommunications_relay_service.pdf",
+    "file": "data/raw/pdf/relay_trs.pdf",
+    "bytes": 289711,
+    "sha256": "927e27c3a042e09f06b9906b615a322e0faed8e5861abecdd43a57a6978aa413",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "telephone_bill": {
+    "url": "https://www.fcc.gov/consumers/guides/understanding-your-telephone-bill",
+    "file": "data/raw/html/telephone_bill.html",
+    "bytes": 70767,
+    "sha256": "c4e775ad08a4a8d16d11dc9dd1cbe2da6d55ee3973874d6df33a0cc42eeee7af",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "international_calling": {
+    "url": "https://www.fcc.gov/consumers/guides/international-long-distance-calling-made-simple-tip-sheet",
+    "file": "data/raw/html/international_calling.html",
+    "bytes": 59995,
+    "sha256": "53c9fbb2438a95b36c72042a7d2a5da98c8f2b9e736c3dd3e9243a9daefbd32c",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "ip_relay_fraud": {
+    "url": "https://www.fcc.gov/consumers/guides/ip-relay-fraud",
+    "file": "data/raw/html/ip_relay_fraud.html",
+    "bytes": 52903,
+    "sha256": "817f5dc963695185bb8f098231c904d9c3ec37ae34ce812ab449698ccf639c9a",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "mobile_speed_tests": {
+    "url": "https://www.fcc.gov/consumers/guides/drive-tests-and-other-speed-tests-conducted-validate-mobile-broadband-availability",
+    "file": "data/raw/html/mobile_speed_tests.html",
+    "bytes": 58301,
+    "sha256": "b8bf0224ed3eec8d48fef32a9e0a2e463a554f61405429784d587397f4fe2813",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  },
+  "real_time_text": {
+    "url": "https://www.fcc.gov/consumers/guides/real-time-text-improving-accessible-telecommunications",
+    "file": "data/raw/html/real_time_text.html",
+    "bytes": 71250,
+    "sha256": "2ae88e5733510cd592b323bd6a0b444b0b6ae32102a1400f49d68303a3b77cbd",
+    "downloaded_at": null,
+    "note": "saved via a web browser (www.fcc.gov blocks scripted downloads)"
+  }
+}
