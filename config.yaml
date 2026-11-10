@@ -20,9 +20,12 @@ vector_store:
 
 retrieval:
   top_k: 4
+  min_score: 0.0                  # 0 = off. Phase 6 tests a threshold for refusing early
 
 llm:
   provider: groq                  # groq | ollama
   model: openai/gpt-oss-20b       # Groq free-tier model id; for ollama e.g. llama3.2:3b
   temperature: 0.0
   max_tokens: 1024                # reasoning models use part of this budget to think
+  reasoning_effort: low           # gpt-oss: low | medium | high (less thinking = fewer tokens, faster)
+  requests_per_minute: 20         # client-side limit; Groq free tier allows 30 RPM / 8K tokens per min

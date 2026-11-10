@@ -48,6 +48,7 @@ class VectorStore:
 @dataclass(frozen=True)
 class Retrieval:
     top_k: int
+    min_score: float = 0.0     # refuse without calling the LLM if the best hit scores below this (0 = off)
 
 
 @dataclass(frozen=True)
@@ -58,6 +59,8 @@ class LLM:
     max_tokens: int
     groq_api_key: str | None
     ollama_base_url: str
+    requests_per_minute: int = 20      # stay under Groq free-tier limits
+    reasoning_effort: str | None = "low"  # for reasoning models (gpt-oss); None to leave unset
 
 
 @dataclass(frozen=True)
@@ -95,7 +98,10 @@ def load_settings(config_path: Path | None = None, env_path: Path | None = None)
         chunking=Chunking(**chunk),
         embeddings=Embeddings(**cfg["embeddings"]),
         vector_store=VectorStore(**cfg["vector_store"]),
-        retrieval=Retrieval(**cfg["retrieval"]),
+        retrieval=Retrieval(
+            top_k=int(cfg["retrieval"]["top_k"]),
+            min_score=float(cfg["retrieval"].get("min_score", 0.0)),
+        ),
         llm=LLM(
             provider=provider,
             model=os.getenv("DOCUASK_LLM_MODEL", cfg["llm"]["model"]),
@@ -103,6 +109,8 @@ def load_settings(config_path: Path | None = None, env_path: Path | None = None)
             max_tokens=int(cfg["llm"]["max_tokens"]),
             groq_api_key=os.getenv("GROQ_API_KEY") or None,
             ollama_base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
+            requests_per_minute=int(cfg["llm"].get("requests_per_minute", 20)),
+            reasoning_effort=cfg["llm"].get("reasoning_effort", "low"),
         ),
     )
 
