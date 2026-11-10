@@ -1,0 +1,39 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Generated data (rebuilt by scripts; raw documents ARE committed)
+data/processed/*
+!data/processed/.gitkeep
+data/index/
+
+# Model caches
+.cache/
+models/
+
+# Gradio
+.gradio/
+flagged/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local setup log
+setup_log.txt

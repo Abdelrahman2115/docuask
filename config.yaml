@@ -1,0 +1,28 @@
+# DocuAsk configuration. Secrets live in .env, everything else lives here.
+# Paths are relative to the project root.
+
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  index_dir: data/index
+
+chunking:
+  chunk_size: 800        # characters; tuned in Phase 6
+  chunk_overlap: 120
+
+embeddings:
+  model: sentence-transformers/all-MiniLM-L6-v2
+  multilingual_model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+
+vector_store:
+  backend: chroma
+  collection: docuask
+
+retrieval:
+  top_k: 4
+
+llm:
+  provider: groq                  # groq | ollama
+  model: openai/gpt-oss-20b       # Groq free-tier model id; for ollama e.g. llama3.2:3b
+  temperature: 0.0
+  max_tokens: 1024                # reasoning models use part of this budget to think

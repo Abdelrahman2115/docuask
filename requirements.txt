@@ -1,0 +1,32 @@
+# DocuAsk runtime dependencies (Python 3.13)
+# Major-version ranges are pinned; exact versions are frozen into
+# requirements.lock.txt after your first successful install (see README).
+
+# --- Config ---
+python-dotenv>=1.0,<2
+pyyaml>=6.0,<7
+
+# --- LangChain (loaders, splitters, LLM interface only) ---
+langchain-core>=1.0,<2
+langchain-text-splitters>=1.0,<2
+langchain-community>=0.4,<1
+langchain-groq>=1.0,<2
+langchain-ollama>=1.0,<2
+
+# --- Document loading (Phase 2) ---
+pypdf>=5.0,<7
+beautifulsoup4>=4.12,<5
+requests>=2.32,<3
+
+# --- Embeddings + vector store (Phase 3) ---
+# On Windows, pip installs the CPU build of torch automatically (~200 MB).
+sentence-transformers>=5.0,<7
+chromadb>=1.0,<2
+
+# --- Hybrid search (Phase 6) ---
+rank-bm25>=0.2.2,<1
+
+# --- UI (Phase 7) ---
+gradio>=6.0,<7
+
+# Evaluation (ragas) is added in Phase 5 so the first install stays light.
