@@ -35,11 +35,19 @@ def main() -> int:
     p.add_argument("--mode", default=s.retrieval.mode, choices=["vector", "bm25", "hybrid"])
     p.add_argument("--rerank", action=argparse.BooleanOptionalAction, default=s.retrieval.rerank)
     p.add_argument("--chunk-size", type=int, default=s.chunking.chunk_size)
+    p.add_argument("--from-choice", action="store_true",
+                   help="use the retrieval config picked by scripts/pick_best.py")
     p.add_argument("--retrieval-only", action="store_true")
     p.add_argument("--rpm", type=int, default=None, help="override LLM requests per minute")
     p.add_argument("--limit", type=int, default=None, help="only the first N questions")
     p.add_argument("--fresh", action="store_true")
     args = p.parse_args()
+
+    if args.from_choice:
+        choice = json.loads((PROJECT_ROOT / "data" / "eval" / "phase6_choice.json").read_text("utf-8"))
+        args.mode, args.rerank, args.chunk_size = choice["mode"], choice["rerank"], choice["chunk_size"]
+        args.model = choice["model"] or args.model
+        print(f"Using Phase 6 choice: {choice['name']}")
 
     items = load_testset(TESTSET)[: args.limit]
     run_dir = RUNS / args.name

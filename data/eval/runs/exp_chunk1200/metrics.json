@@ -1,0 +1,26 @@
+{
+  "config": {
+    "name": "chunk1200",
+    "group": "chunking",
+    "retriever": "vector[all-MiniLM-L6-v2]",
+    "k": 4,
+    "mode": "vector",
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_size": 1200,
+    "rerank": false,
+    "max_seq_length": 256,
+    "n_chunks": 204
+  },
+  "n_questions": 40,
+  "n_answerable": 30,
+  "n_unanswerable": 10,
+  "retrieval": {
+    "hit_at_1": 0.8,
+    "hit_rate": 0.9667,
+    "mrr": 0.875,
+    "context_precision": 0.8519,
+    "context_recall": 0.9667,
+    "mean_context_chars": 3681.7667,
+    "mean_retrieval_ms": 12.9097
+  }
+}

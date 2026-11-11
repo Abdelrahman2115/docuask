@@ -1,0 +1,10 @@
+{
+  "name": "emb_multi_e5",
+  "mode": "vector",
+  "model": "intfloat/multilingual-e5-small",
+  "chunk_size": 800,
+  "rerank": false,
+  "mrr": 0.95,
+  "hit_at_1": 0.9,
+  "rule": "Pick the final retrieval configuration with a rule fixed in advance.\n\nRule (decided before looking at the combined results):\n  1. Highest MRR on the 30 answerable dev questions.\n  2. Configurations within one question's worth of MRR of the best\n     (0.5 / 30 = 0.017: one question moving from rank 1 to rank 2) count as tied,\n     because a smaller difference is noise on 30 questions.\n  3. Among tied configurations, pick the lowest latency per query."
+}

@@ -75,3 +75,21 @@ development-set results.
 The batch evaluation throttles LLM calls to stay inside Groq's free tier
 (8,000 tokens/minute), so `generation_ms` in run metrics (~10 s) is mostly
 waiting. Real interactive latency is measured separately in the app.
+
+In the `final` run one question (a13) took 39,245 s because the computer went
+to sleep during the API call, which makes the *mean* generation time
+meaningless (990 s). Use the median instead: 10.0 s per answer (throttled),
+44 ms per retrieval.
+
+## 9. Part of the faithfulness gain is judge noise
+
+Baseline faithfulness 0.878 includes two false zeros from the judge (a10, a22).
+Against the audited baseline (0.947) the final configuration (0.978) is
++0.031, not +0.100. The deterministic metrics (hit@1, MRR, gold citations,
+false refusals) are the more reliable evidence of improvement.
+
+## 10. The winning configuration was selected on the dev set
+
+`multilingual-e5-small` was chosen by a rule fixed in advance (highest MRR;
+ties within 0.017 broken by latency), but on the same 40 questions it is
+scored on. Its final numbers are optimistic for unseen questions.

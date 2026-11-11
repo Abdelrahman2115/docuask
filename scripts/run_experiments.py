@@ -45,6 +45,9 @@ EXPERIMENTS = [
     ("rerank",            "rerank",     dict(mode="vector", model=MINILM, chunk_size=800, rerank=True)),
     ("hybrid_rerank",     "combined",   dict(mode="hybrid", model=MINILM, chunk_size=800, rerank=True)),
     ("hybrid_rerank_bge", "combined",   dict(mode="hybrid", model=BGE, chunk_size=800, rerank=True)),
+    # added after round 1 showed multilingual-e5-small as the best single embedding model
+    ("hybrid_e5",         "combined",   dict(mode="hybrid", model=E5, chunk_size=800, rerank=False)),
+    ("rerank_e5",         "combined",   dict(mode="vector", model=E5, chunk_size=800, rerank=True)),
 ]
 
 TESTSET = PROJECT_ROOT / "data" / "eval" / "testset.jsonl"
@@ -132,6 +135,15 @@ def main() -> int:
               f"ctx_chars={fmt(r['mean_context_chars'], 0)} ms={fmt(r['mean_retrieval_ms'], 0)} "
               f"misses={results[-1]['misses']}")
 
+    # merge with earlier results so a partial run (--only) never drops rows
+    out = PROJECT_ROOT / "data" / "eval"
+    prev_path = out / "phase6_retrieval.json"
+    if prev_path.exists():
+        new_names = {x["name"] for x in results}
+        results = [x for x in json.loads(prev_path.read_text("utf-8")) if x["name"] not in new_names] + results
+    order = [e[0] for e in EXPERIMENTS]
+    results.sort(key=lambda x: order.index(x["name"]) if x["name"] in order else 99)
+
     base = next(x for x in results if x["name"] == "baseline")
     lines = [
         f"| Experiment | Change | Chunks | Hit@1 | Hit@{args.k} | MRR | Δ MRR | Ctx precision | Ctx recall "
@@ -147,7 +159,6 @@ def main() -> int:
             f"| {fmt(x['context_recall'])} | {fmt(x['mean_context_chars'], 0)} | {fmt(x['mean_retrieval_ms'], 0)} "
             f"| {', '.join(x['misses']) or '-'} |")
     table = "\n".join(lines)
-    out = PROJECT_ROOT / "data" / "eval"
     (out / "phase6_retrieval.json").write_text(json.dumps(results, indent=2), encoding="utf-8")
     (out / "phase6_retrieval.md").write_text(
         "# Phase 6 retrieval experiments (30 answerable dev questions, k=%d)\n\n%s\n" % (args.k, table),

@@ -1,0 +1,26 @@
+{
+  "config": {
+    "name": "emb_multi_e5",
+    "group": "embeddings",
+    "retriever": "vector[multilingual-e5-small]",
+    "k": 4,
+    "mode": "vector",
+    "model": "intfloat/multilingual-e5-small",
+    "chunk_size": 800,
+    "rerank": false,
+    "max_seq_length": 512,
+    "n_chunks": 305
+  },
+  "n_questions": 40,
+  "n_answerable": 30,
+  "n_unanswerable": 10,
+  "retrieval": {
+    "hit_at_1": 0.9,
+    "hit_rate": 1.0,
+    "mrr": 0.95,
+    "context_precision": 0.9139,
+    "context_recall": 1.0,
+    "mean_context_chars": 2490.3,
+    "mean_retrieval_ms": 39.6428
+  }
+}
