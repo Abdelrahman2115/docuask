@@ -121,3 +121,14 @@ def test_chunking_is_deterministic():
     a = chunk_units(_units(), 300, 60)
     b = chunk_units(_units(), 300, 60)
     assert [c.chunk_id for c in a] == [c.chunk_id for c in b]
+
+
+def test_html_footer_without_printable_heading_is_dropped():
+    html = ("<html><head><title>G</title></head><body><article class='guide'><div>"
+            "<p>" + "Real guide content about mobile speed tests. " * 10 + "</p>"
+            "<p>Date Last Updated/Reviewed: Tuesday</p><p>Tags: Wireless Consumer Issues</p>"
+            "<h3>FCC Consumer Resource Library</h3><p>Free printable tip cards.</p>"
+            "</div></article></body></html>")
+    joined = " ".join(b for _, b in html_to_sections(html))
+    assert "Real guide content" in joined
+    assert "Date Last Updated" not in joined and "Tags" not in joined and "tip cards" not in joined

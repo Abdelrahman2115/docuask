@@ -1,0 +1,22 @@
+# Runtime dependencies for the Docker image / Hugging Face Space (Linux, Python 3.13).
+# Exact versions copied from requirements.lock.txt (the versions tested on the dev machine),
+# minus Windows-only and dev/eval packages. torch is installed separately from the
+# CPU-only index in the Dockerfile (the default Linux wheel bundles ~2.5 GB of CUDA).
+python-dotenv==1.2.4
+PyYAML==6.0.3
+langchain-core==1.7.7
+langchain-text-splitters==1.1.3
+langchain-groq==1.1.3
+groq==0.37.1
+pypdf==6.21.4
+beautifulsoup4==4.15.0
+requests==2.34.2
+numpy==2.5.4
+sentence-transformers==6.2.0
+transformers==5.22.2
+tokenizers==0.23.3
+huggingface_hub==2.4.0
+scikit-learn==1.9.1
+chromadb==1.5.9
+rank-bm25==0.2.2
+gradio==6.31.0

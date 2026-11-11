@@ -139,7 +139,9 @@ def load_pdf(path: Path, doc_id: str, title: str, url: str) -> list[Unit]:
     return units
 
 
-_STOP_HEADINGS = {"printable version", "alternate format requests"}
+_STOP_HEADINGS = {"printable version", "alternate format requests", "fcc consumer resource library"}
+# FCC page footer: the guide body ends where any of these lines starts
+_FOOTER_PREFIXES = ("date last updated", "alternate format requests", "bureau/office")
 
 
 def html_to_sections(html_text: str, min_chars: int = 200) -> list[tuple[str, str]]:
@@ -163,7 +165,8 @@ def html_to_sections(html_text: str, min_chars: int = 200) -> list[tuple[str, st
         text = el.get_text(" ", strip=True)
         if not text:
             continue
-        if el.name in ("h4", "h5") and text.lower() in _STOP_HEADINGS:
+        low = text.lower()
+        if (el.name in ("h4", "h5") and low in _STOP_HEADINGS) or low.startswith(_FOOTER_PREFIXES):
             break
         if el.name in ("h1", "h2", "h3"):
             if text.lower() in _STOP_HEADINGS:

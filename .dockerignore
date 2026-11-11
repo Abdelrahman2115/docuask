@@ -1,0 +1,19 @@
+# keep the image small and secrets out of it
+.env
+.venv/
+venv/
+.git/
+.github/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+data/index/
+data/processed/
+data/eval/
+notebooks/
+tests/
+docs/
+*_log.txt
+*.bat
+requirements.lock.txt

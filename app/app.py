@@ -38,15 +38,21 @@ guides and cite the exact page or section; if the guides don't cover it, DocuAsk
 *Not legal advice. U.S. rules only.*"""
 
 
-def build_engine() -> tuple[ChatEngine, str]:
+def build_engine() -> tuple[ChatEngine | None, str, str | None]:
+    """Returns (engine, footer info, startup error). A missing API key must not crash
+    the Space: the page still loads and explains what to configure."""
     s = get_settings()
     retriever = build_retriever(s)
-    pipeline = RAGPipeline(retriever, get_llm(s), top_k=s.retrieval.top_k, min_score=s.retrieval.min_score)
     info = f"Retriever: `{retriever.name}` · LLM: `{s.llm.provider}/{s.llm.model}` · top-k {s.retrieval.top_k}"
-    return ChatEngine(pipeline), info
+    try:
+        llm = get_llm(s)
+    except Exception as e:  # noqa: BLE001
+        return None, info, f"{type(e).__name__}: {e}"
+    pipeline = RAGPipeline(retriever, llm, top_k=s.retrieval.top_k, min_score=s.retrieval.min_score)
+    return ChatEngine(pipeline), info, None
 
 
-ENGINE, CONFIG_INFO = build_engine()
+ENGINE, CONFIG_INFO, STARTUP_ERROR = build_engine()
 
 
 def respond(message: str, history: list[dict]):
@@ -54,6 +60,11 @@ def respond(message: str, history: list[dict]):
     if not message:
         return history, gr.update(), gr.update(), ""
     history = list(history or [])
+    if ENGINE is None:
+        answer = (f"⚠️ The app is not configured: {STARTUP_ERROR}\n\n"
+                  "Set the `GROQ_API_KEY` environment variable (on Hugging Face: Settings → Secrets).")
+        history += [{"role": "user", "content": message}, {"role": "assistant", "content": answer}]
+        return history, "", "", ""
     try:
         turn = ENGINE.ask(message, history)
         answer, sources, timing = turn.response.answer, format_sources(turn), format_timing(turn)
@@ -70,6 +81,8 @@ def clear():
 
 with gr.Blocks(title="DocuAsk") as demo:
     gr.Markdown(INTRO)
+    if STARTUP_ERROR:
+        gr.Markdown(f"⚠️ **LLM not configured:** {STARTUP_ERROR}. Set `GROQ_API_KEY` and restart.")
     with gr.Row():
         with gr.Column(scale=3):
             chatbot = gr.Chatbot(label="Conversation", height=480, buttons=["copy"])

@@ -93,3 +93,17 @@ false refusals) are the more reliable evidence of improvement.
 `multilingual-e5-small` was chosen by a rule fixed in advance (highest MRR;
 ties within 0.017 broken by latency), but on the same 40 questions it is
 scored on. Its final numbers are optimistic for unseen questions.
+
+## 11. Evaluation numbers predate a small cleaning fix
+
+All Phase 5-6 results were measured on 305 chunks. In Phase 8 a corpus-level
+test found that two HTML guides without a "Printable Version" heading leaked
+their page footer (update date, tags, a resource-library promo) into 3 chunks.
+The cleaner now stops at the footer, leaving 303 chunks; no gold source was
+affected. The deployed app uses the fixed 303-chunk index, so its behaviour can
+differ very slightly from the evaluated runs.
+
+## 12. Citations are page/section level in the UI too
+
+When several retrieved chunks come from the same page, all of them are marked
+as cited, because a citation names a page, not a chunk.

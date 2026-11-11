@@ -1,0 +1,45 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements-docker.txt
+      - name: Install dependencies (CPU-only torch, same pins as the Docker image)
+        run: |
+          pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements-docker.txt pytest==9.2.0
+      - name: Build chunks from the committed FCC documents
+        run: python scripts/ingest.py
+        env:
+          PYTHONPATH: src
+      - name: Run tests
+        run: python -m pytest -q -rs
+
+  docker:
+    # Proves the deployable image builds and the app starts (no API key needed:
+    # the app loads and shows a configuration notice instead of crashing).
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image (installs deps, chunks the corpus, builds the vector index)
+        run: docker build -t docuask .
+      - name: Smoke test - container starts and serves the UI
+        run: |
+          docker run -d -p 7860:7860 --name docuask docuask
+          for i in $(seq 1 90); do
+            if curl -sf http://localhost:7860/ > /dev/null; then echo "up after $((i*2))s"; break; fi
+            sleep 2
+          done
+          curl -sf http://localhost:7860/ | grep -q "DocuAsk"
+          docker logs docuask
