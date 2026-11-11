@@ -3,6 +3,7 @@
 Run from the project root (after scripts/ingest.py):
     python scripts/build_index.py
     python scripts/build_index.py --model sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+    python scripts/build_index.py --chunk-size 400
 
 Writes data/index/ (Chroma files) and data/index/index_meta_<collection>.json.
 The first run downloads the embedding model (~90 MB) into the Hugging Face cache.
@@ -19,7 +20,8 @@ from datetime import datetime, timezone
 
 from docuask.config import get_settings
 from docuask.embeddings import Embedder
-from docuask.index import build_index, collection_name, search
+from docuask.index import build_index, search
+from docuask.variants import chunks_path as variant_chunks_path, index_collection
 from docuask.ingest import load_chunks
 
 # Quick smoke test, not the evaluation (that is Phase 5): each question names the
@@ -37,15 +39,17 @@ def main() -> int:
     s = get_settings()
     p = argparse.ArgumentParser()
     p.add_argument("--model", default=s.embeddings.model)
+    p.add_argument("--chunk-size", type=int, default=s.chunking.chunk_size)
     p.add_argument("--k", type=int, default=3)
+    p.add_argument("--quiet", action="store_true", help="skip the sanity query printout")
     args = p.parse_args()
 
-    chunks_path = s.paths.processed_dir / "chunks.jsonl"
+    chunks_path = variant_chunks_path(s, args.chunk_size)
     if not chunks_path.exists():
-        print("chunks.jsonl not found. Run: python scripts/ingest.py")
+        print(f"{chunks_path.name} not found. Run: python scripts/ingest.py --chunk-size {args.chunk_size}")
         return 1
     chunks = load_chunks(chunks_path)
-    name = collection_name(s.vector_store.collection, args.model)
+    name = index_collection(s, args.model, args.chunk_size)
 
     t0 = time.perf_counter()
     embedder = Embedder(args.model)
@@ -70,9 +74,10 @@ def main() -> int:
         latencies.append(1000 * (time.perf_counter() - t0))
         found = any(h.chunk.doc_id == expected for h in hits)
         hits_ok += found
-        print(f"\nQ: {question}\n   expected {expected}: {'HIT' if found else 'MISS'}")
-        for h in hits:
-            print(f"   {h.score:.3f}  {h.chunk.citation}  {h.chunk.text[:70].replace(chr(10), ' ')}...")
+        if not args.quiet:
+            print(f"\nQ: {question}\n   expected {expected}: {'HIT' if found else 'MISS'}")
+            for h in hits:
+                print(f"   {h.score:.3f}  {h.chunk.citation}  {h.chunk.text[:70].replace(chr(10), ' ')}...")
     print(f"\nSanity hits: {hits_ok}/{len(SANITY)} in top-{args.k}; "
           f"mean query latency {sum(latencies) / len(latencies):.0f} ms")
 
@@ -82,6 +87,7 @@ def main() -> int:
         "dim": embedder.dim,
         "max_seq_length": embedder.max_seq_length,
         "chunks": count,
+        "chunk_size": args.chunk_size,
         "chunks_sha256": hashlib.sha256(chunks_path.read_bytes()).hexdigest(),
         "model_load_seconds": round(t_load, 2),
         "index_build_seconds": round(t_build, 2),

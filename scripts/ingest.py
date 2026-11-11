@@ -1,12 +1,12 @@
-"""Phase 2: load raw documents, clean them, chunk them, and save chunks.jsonl.
+"""Phase 2: load raw documents, clean them, chunk them, and save chunks_c<size>.jsonl.
 
 Run from the project root (after scripts/download_docs.py):
     python scripts/ingest.py
-    python scripts/ingest.py --chunk-size 500 --chunk-overlap 75   # experiment
+    python scripts/ingest.py --chunk-size 400          # experiment (overlap defaults to 15%)
 
 Writes:
-    data/processed/chunks.jsonl       one JSON chunk per line
-    data/processed/ingest_stats.json  summary numbers (used in the README later)
+    data/processed/chunks_c<size>.jsonl       one JSON chunk per line
+    data/processed/ingest_stats_c<size>.json  summary numbers (used in the README later)
 """
 
 from __future__ import annotations
@@ -19,6 +19,7 @@ from collections import Counter
 
 from docuask.config import PROJECT_ROOT, get_settings
 from docuask.ingest import chunk_units, load_corpus, save_chunks
+from docuask.variants import chunks_path, overlap_for
 
 EMBED_TOKEN_LIMIT = 256   # all-MiniLM-L6-v2 truncates input after 256 word pieces
 
@@ -27,8 +28,11 @@ def main() -> int:
     s = get_settings()
     p = argparse.ArgumentParser()
     p.add_argument("--chunk-size", type=int, default=s.chunking.chunk_size)
-    p.add_argument("--chunk-overlap", type=int, default=s.chunking.chunk_overlap)
+    p.add_argument("--chunk-overlap", type=int, default=None, help="default: config value, or 15%% of a custom size")
     args = p.parse_args()
+    if args.chunk_overlap is None:
+        args.chunk_overlap = (s.chunking.chunk_overlap if args.chunk_size == s.chunking.chunk_size
+                              else overlap_for(args.chunk_size))
 
     units, missing = load_corpus(s.paths.raw_dir, PROJECT_ROOT / "data" / "sources.csv")
     if missing:
@@ -38,7 +42,7 @@ def main() -> int:
         return 1
 
     chunks = chunk_units(units, args.chunk_size, args.chunk_overlap)
-    out = s.paths.processed_dir / "chunks.jsonl"
+    out = chunks_path(s, args.chunk_size)
     save_chunks(chunks, out)
 
     lengths = [len(c.text) for c in chunks]
@@ -61,7 +65,7 @@ def main() -> int:
         "chunks_over_embed_limit_est": sum(t > EMBED_TOKEN_LIMIT for t in est_tokens),
         "chunks_per_doc_max": per_doc.most_common(1)[0],
     }
-    (s.paths.processed_dir / "ingest_stats.json").write_text(json.dumps(stats, indent=2), encoding="utf-8")
+    (s.paths.processed_dir / f"ingest_stats_c{args.chunk_size}.json").write_text(json.dumps(stats, indent=2), encoding="utf-8")
 
     print("===== INGEST STATS =====")
     for k, v in stats.items():

@@ -1,0 +1,47 @@
+{
+  "config": {
+    "name": "baseline",
+    "retriever": "vector[all-MiniLM-L6-v2]",
+    "k": 4,
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_size": 800,
+    "chunk_overlap": 120,
+    "min_score": 0.0,
+    "llm": "groq/openai/gpt-oss-20b",
+    "prompt_version": "v2"
+  },
+  "n_questions": 40,
+  "n_answerable": 30,
+  "n_unanswerable": 10,
+  "retrieval": {
+    "hit_rate": 0.9667,
+    "mrr": 0.8667,
+    "context_precision": 0.85,
+    "context_recall": 0.9667
+  },
+  "generation": {
+    "refusal_accuracy": 0.975,
+    "correct_refusals": "10/10",
+    "false_refusals": "1/30",
+    "answers_with_citation": 0.9655,
+    "answers_citing_gold_source": 0.8966,
+    "invalid_citations_total": 0,
+    "mean_total_ms": 10072.3451,
+    "mean_retrieval_ms": 49.1958,
+    "mean_generation_ms": 10023.1492
+  },
+  "missing": [],
+  "ragas": {
+    "judge": "openai/gpt-oss-120b",
+    "mode": "JSON",
+    "answer_relevancy_strictness": 1,
+    "faithfulness": {
+      "mean": 0.8782,
+      "valid": "29/29"
+    },
+    "answer_relevancy": {
+      "mean": 0.8024,
+      "valid": "29/29"
+    }
+  }
+}

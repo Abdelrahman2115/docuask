@@ -49,6 +49,11 @@ class VectorStore:
 class Retrieval:
     top_k: int
     min_score: float = 0.0     # refuse without calling the LLM if the best hit scores below this (0 = off)
+    mode: str = "vector"       # vector | bm25 | hybrid
+    rerank: bool = False       # re-score candidates with a cross-encoder
+    candidates: int = 20       # how many candidates hybrid/rerank look at before cutting to top_k
+    rrf_k: int = 60            # Reciprocal Rank Fusion constant
+    reranker: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 
 
 @dataclass(frozen=True)
@@ -101,6 +106,11 @@ def load_settings(config_path: Path | None = None, env_path: Path | None = None)
         retrieval=Retrieval(
             top_k=int(cfg["retrieval"]["top_k"]),
             min_score=float(cfg["retrieval"].get("min_score", 0.0)),
+            mode=str(cfg["retrieval"].get("mode", "vector")),
+            rerank=bool(cfg["retrieval"].get("rerank", False)),
+            candidates=int(cfg["retrieval"].get("candidates", 20)),
+            rrf_k=int(cfg["retrieval"].get("rrf_k", 60)),
+            reranker=str(cfg["retrieval"].get("reranker", "cross-encoder/ms-marco-MiniLM-L-6-v2")),
         ),
         llm=LLM(
             provider=provider,

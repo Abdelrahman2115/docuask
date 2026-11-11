@@ -15,7 +15,7 @@ from docuask.config import get_settings
 from docuask.llm import get_llm
 from docuask.prompts import PROMPT_VERSION
 from docuask.rag import RAGPipeline
-from docuask.retriever import load_vector_retriever
+from docuask.retriever import build_retriever
 
 # (question, kind). Kinds: answerable / partial / unanswerable. Expected behaviour is
 # described in the README; the real scored test set comes in Phase 5.
@@ -53,7 +53,7 @@ def main() -> int:
     if not args.question and not args.demo:
         p.error("give a question or --demo")
 
-    pipeline = RAGPipeline(load_vector_retriever(s), get_llm(s), top_k=args.k, min_score=s.retrieval.min_score)
+    pipeline = RAGPipeline(build_retriever(s), get_llm(s), top_k=args.k, min_score=s.retrieval.min_score)
     print(f"LLM: {s.llm.provider}/{s.llm.model}  retriever: {pipeline.retriever.name}  "
           f"k={args.k}  prompt: {PROMPT_VERSION}")
 

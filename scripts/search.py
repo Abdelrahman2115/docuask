@@ -10,8 +10,7 @@ import argparse
 import time
 
 from docuask.config import get_settings
-from docuask.embeddings import Embedder
-from docuask.index import collection_name, open_collection, search
+from docuask.retriever import build_retriever
 
 
 def main() -> None:
@@ -20,12 +19,14 @@ def main() -> None:
     p.add_argument("query")
     p.add_argument("--k", type=int, default=s.retrieval.top_k)
     p.add_argument("--model", default=s.embeddings.model)
+    p.add_argument("--mode", default=s.retrieval.mode, choices=["vector", "bm25", "hybrid"])
+    p.add_argument("--rerank", action="store_true", default=s.retrieval.rerank)
     args = p.parse_args()
 
-    embedder = Embedder(args.model)
-    col = open_collection(s.paths.index_dir, collection_name(s.vector_store.collection, args.model))
+    retriever = build_retriever(s, mode=args.mode, model=args.model, rerank=args.rerank)
+    print(f"Retriever: {retriever.name}")
     t0 = time.perf_counter()
-    hits = search(col, embedder, args.query, k=args.k)
+    hits = retriever.retrieve(args.query, args.k)
     ms = 1000 * (time.perf_counter() - t0)
     print(f"Top {len(hits)} for: {args.query!r}  ({ms:.0f} ms)\n")
     for i, h in enumerate(hits, 1):
