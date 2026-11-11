@@ -1,0 +1,86 @@
+{
+  "summary": {
+    "n": 8,
+    "median_total_s": 1.68,
+    "p90_total_s": 2.31,
+    "max_total_s": 2.9,
+    "median_retrieval_ms": 36.8,
+    "median_generation_s": 1.35,
+    "retriever": "vector[multilingual-e5-small]",
+    "llm": "groq/openai/gpt-oss-20b"
+  },
+  "rows": [
+    {
+      "question": "How long does it take to port my number?",
+      "follow_up": false,
+      "refused": false,
+      "total_s": 2.31,
+      "retrieval_ms": 30.7,
+      "generation_s": 2.278,
+      "rewrite_s": 0.0
+    },
+    {
+      "question": "And if I'm switching from a landline to a cell phone?",
+      "follow_up": true,
+      "refused": false,
+      "total_s": 1.53,
+      "retrieval_ms": 51.0,
+      "generation_s": 0.754,
+      "rewrite_s": 0.725
+    },
+    {
+      "question": "What should I do about charges on my bill I never ordered?",
+      "follow_up": false,
+      "refused": false,
+      "total_s": 1.827,
+      "retrieval_ms": 33.7,
+      "generation_s": 1.793,
+      "rewrite_s": 0.0
+    },
+    {
+      "question": "Who do I complain to if the company won't fix it?",
+      "follow_up": true,
+      "refused": false,
+      "total_s": 2.228,
+      "retrieval_ms": 59.5,
+      "generation_s": 1.682,
+      "rewrite_s": 0.486
+    },
+    {
+      "question": "Should I call back a missed international number that rang once?",
+      "follow_up": false,
+      "refused": false,
+      "total_s": 0.597,
+      "retrieval_ms": 55.9,
+      "generation_s": 0.541,
+      "rewrite_s": 0.0
+    },
+    {
+      "question": "Can I text 911?",
+      "follow_up": false,
+      "refused": false,
+      "total_s": 1.046,
+      "retrieval_ms": 29.9,
+      "generation_s": 1.016,
+      "rewrite_s": 0.0
+    },
+    {
+      "question": "Is an eSIM safer than a normal SIM card?",
+      "follow_up": false,
+      "refused": false,
+      "total_s": 2.902,
+      "retrieval_ms": 28.2,
+      "generation_s": 2.874,
+      "rewrite_s": 0.0
+    },
+    {
+      "question": "What is the capital of Australia?",
+      "follow_up": false,
+      "refused": true,
+      "total_s": 0.699,
+      "retrieval_ms": 39.9,
+      "generation_s": 0.659,
+      "rewrite_s": 0.0
+    }
+  ]
+}

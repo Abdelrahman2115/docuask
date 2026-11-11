@@ -45,3 +45,20 @@ def build_messages(question: str, hits: list[SearchHit]) -> list[tuple[str, str]
         "Answer using only the passages above. End every sentence with an allowed citation."
     )
     return [("system", SYSTEM_PROMPT), ("human", user)]
+
+
+CONDENSE_SYSTEM = """You rewrite follow-up questions for a search engine. Given a short chat \
+history and a new user message, rewrite the message as ONE standalone question that can be \
+understood without the history (replace words like "it", "that", "they" with what they refer to). \
+If the message is already standalone or is unrelated to the history, return it unchanged. \
+Output only the question, nothing else."""
+
+
+def build_condense_messages(history: list[tuple[str, str]], question: str) -> list[tuple[str, str]]:
+    lines = []
+    for user, assistant in history:
+        lines.append(f"User: {user}")
+        lines.append(f"Assistant: {assistant[:400]}")
+    convo = "\n".join(lines)
+    return [("system", CONDENSE_SYSTEM),
+            ("human", f"Chat history:\n{convo}\n\nNew message: {question}\n\nStandalone question:")]
